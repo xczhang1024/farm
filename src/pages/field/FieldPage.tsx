@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import soil from "../../assets/soil.png";
+import { soilId } from "../../logic/CropValues";
 import { Crop } from "../../types/Crop";
 import { HarvestedTable } from "./components/HarvestedTable";
 import { CauliflowerCycle } from "../../logic/CaliflowerCycle";
@@ -10,8 +11,6 @@ import { HarvestedCrop } from "../../types/HarvestedCrop";
 import { CropComponent } from "./components/CropComponent";
 
 export const FieldPage = () => {
-    const soilId = -1;
-
     const [crops, setCrops] = useState<Crop[]>([
         {id: 1, name: "Califlower", cycle: CauliflowerCycle},
         {id: 2, name: "Potato", cycle: PotatoCycle}

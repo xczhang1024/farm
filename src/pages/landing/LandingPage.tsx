@@ -8,8 +8,8 @@ interface Section {
 
 export const LandingPage = () => {
     const sections : Section[] = [
-        {title: "Field", link: "/field"}, 
-        {title: "Coop", link: "/coop"}
+        {title: "Crops", link: "/field"}, 
+        {title: "Chickens", link: "/coop"}
     ];
 
     const getContent = () => {

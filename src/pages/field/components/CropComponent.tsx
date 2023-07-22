@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import soil from "../../../assets/soil.png";
 import { Crop } from "../../../types/Crop";
+import { cropGrowthInterval } from "../../../logic/CropValues";
 
 interface CropComponentProps {
     soilIndex: string;
@@ -13,8 +14,6 @@ export const CropComponent = ({soilIndex, crop, onHarvestedCallback} : CropCompo
     const [isFullyGrown, setIsFullyGrown] = useState<boolean>(false);
     const [isHarvested, setIsHarvested] = useState<boolean>(false);
 
-    const growthInterval: number = 4000;
-
     useEffect(() => {
         const interval = setInterval(() => {
            const nextIndex = imageIndex + 1;
@@ -26,7 +25,7 @@ export const CropComponent = ({soilIndex, crop, onHarvestedCallback} : CropCompo
             // Grow another cycle
             setImageIndex(nextIndex);
            }
-        }, growthInterval);
+        }, cropGrowthInterval);
 
         return () => clearInterval(interval);
     })
