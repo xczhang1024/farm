@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { LandingPage } from './pages/landing/LandingPage';
+import { FieldPage } from './pages/field/FieldPage';
+import { CoopPage } from './pages/coop/CoopPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/field" element={<FieldPage/>}/>
+        <Route path="/coop" element={<CoopPage/>}/>
+
+        <Route path="*"
+                element={
+                    <main style={{padding: "1rem"}}>
+                        <p>Page not found</p>
+                    </main>
+                }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
